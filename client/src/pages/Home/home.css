@@ -1,0 +1,92 @@
+.home {
+}
+.home__posts {
+  padding-block: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+.home__post {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  /* border: 1px solid var(--main-color); */
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+.home__post__thumbnail {
+  width: 100%;
+  overflow: hidden;
+}
+.home__post__thumbnail img {
+  aspect-ratio: 16/9;
+  background-color: gray;
+  object-fit: cover;
+}
+.home__post__text {
+  position: relative;
+  text-align: center;
+  padding: 1rem 1rem 3rem 1rem;
+}
+.home__post__title {
+  font-family: "Dovemayo_gothic";
+  color: var(--main-color);
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.home__post__content {
+  margin-top: 1rem;
+  color: var(--sub-color);
+  height: 5rem;
+  overflow: clip;
+  background: linear-gradient(180deg, var(--sub-color) 0%, var(--sub-color) 85%, transparent 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+.home__post__meta {
+  color: var(--main-color);
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+@media screen and (width >= 50rem) {
+  .home__post {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 2rem;
+    height: 20rem;
+  }
+  .home__post-link:nth-child(2n) .home__post {
+    flex-direction: row-reverse;
+  }
+
+  .home__post__thumbnail {
+    width: 40%;
+  }
+  .home__post__thumbnail img {
+    /* height: 100%; */
+    aspect-ratio: unset;
+  }
+  .home__post__text {
+    /* flex-grow: 1; */
+    width: 50%;
+    text-align: unset;
+    height: 100%;
+  }
+  .home__post__title {
+    font-size: 2rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  .home__post__content {
+    font-size: 1.5rem;
+    height: calc(100% - 4rem);
+  }
+}

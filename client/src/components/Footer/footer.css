@@ -1,0 +1,14 @@
+.footer {
+  background-color: var(--sub-bg);
+  padding: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+}
+.footer__logo {
+  width: 3rem;
+}
+.footer__copyright {
+  color: var(--main-color);
+}

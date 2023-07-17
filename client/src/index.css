@@ -1,0 +1,50 @@
+@font-face {
+  font-family: "Dovemayo_gothic";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.1/Dovemayo_gothic.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Dovemayo-Medium";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.0/Dovemayo-Medium.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+:root {
+  --main-bg: #f8f8f8;
+  --sub-bg: #c9d8d6;
+  --main-font: #745669;
+  --sub-font: #997976;
+  --error-font: #e38a8a;
+  --main-color: #5c5b81;
+  --sub-color: #62a7af;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Dovemayo-Medium", sans-serif;
+}
+img {
+  width: 100%;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+input {
+  outline: none;
+  border: none;
+}
+button {
+  cursor: pointer;
+}
+li {
+  list-style: none;
+}

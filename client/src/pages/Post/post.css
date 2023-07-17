@@ -1,0 +1,95 @@
+.post {
+  padding-block: 4rem;
+}
+.post__target {
+  width: 100%;
+}
+.post__target__title {
+  font-size: 3rem;
+  color: var(--main-color);
+}
+.post__target__author {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  cursor: default;
+}
+.post__target__author-name {
+  color: var(--main-color);
+  font-size: 1.2rem;
+  flex-grow: 1;
+  text-align: left;
+  padding-block: 1rem;
+}
+
+.post__target__btn {
+  background-color: transparent;
+  border: 2px solid var(--sub-color);
+  color: var(--main-color);
+  padding: 0.5rem;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  margin-left: 1rem;
+  font-size: 1.2rem;
+}
+.post__target__btn:is(:focus, :hover) {
+  color: var(--error-font);
+  border-color: currentColor;
+}
+.post__target__img {
+  width: min(100%, 50rem);
+  margin: 4rem auto;
+}
+.post__target__img img {
+  aspect-ratio: 16/9;
+  background-color: gray;
+  object-fit: cover;
+}
+
+.post__target__content {
+  font-size: 1.5rem;
+  color: var(--sub-color);
+  line-height: 1.5;
+}
+.post__related-posts {
+  display: none;
+  width: 25%;
+  padding: 2rem;
+  border-left: 1px solid var(--sub-color);
+}
+.post__related-post {
+  padding: 1rem;
+  box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+  margin-bottom: 2rem;
+}
+.post__related-post__img {
+  width: 100%;
+}
+.post__related-post__img img {
+  background-color: gray;
+  object-fit: cover;
+  aspect-ratio: 16/9;
+}
+.post__related-post__title {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-family: "Dovemayo_gothic";
+}
+@media screen and (width >= 50rem) {
+  .post {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .post__target {
+    width: 70%;
+  }
+  .post__related-posts {
+    display: block;
+  }
+}

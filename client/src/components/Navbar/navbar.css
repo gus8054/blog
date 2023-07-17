@@ -1,0 +1,115 @@
+.navbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  position: relative;
+}
+.navbar__user {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.navbar__user__username {
+  cursor: default;
+}
+.navbar__user__withdraw {
+  border-radius: 1rem;
+  padding: 0.5rem;
+  background-color: var(--error-font);
+}
+.navbar__user__withdraw:is(:focus, :hover) {
+  opacity: 0.8;
+}
+/* logo */
+.navbar__logo {
+  width: 5rem;
+  height: 8rem;
+}
+.navbar__title {
+  font-size: 2rem;
+}
+/* auth */
+.navbar__auths {
+}
+.navbar__auth {
+  margin-left: 1rem;
+  font-size: 1.2rem;
+  border: 2px solid var(--main-color);
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+}
+.navbar__auth_logout,
+.navbar__auth_join {
+  color: var(--main-color);
+  background-color: transparent;
+  font-family: inherit;
+}
+.navbar__auth_write,
+.navbar__auth_login {
+  color: var(--main-bg);
+  background-color: var(--main-color);
+}
+.navbar__auth:is(:focus, :hover) {
+  opacity: 0.8;
+}
+.navbar__username {
+  margin-left: 1rem;
+  display: inline-block;
+  font-size: 1.2rem;
+  color: var(--main-color);
+}
+/* link */
+.navbar__links {
+  width: 100%;
+  border: 1px solid var(--sub-bg);
+  display: flex;
+  justify-content: stretch;
+  align-items: center;
+}
+.navbar__link {
+  flex: 1 1 auto;
+  text-align: center;
+  padding-block: 1rem;
+}
+.navbar__link:nth-child(2n) {
+  background-color: var(--sub-bg);
+}
+.navbar__link:is(:focus, :hover) {
+  background-color: var(--sub-color);
+}
+/* breakpoint */
+@media screen and (width >= 50rem) {
+  .navbar__logo {
+    order: 1;
+  }
+  .navbar__links {
+    width: unset;
+    flex-grow: 1;
+    order: 2;
+    border: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    justify-content: flex-end;
+    gap: 2rem;
+  }
+  .navbar__link {
+    flex: unset;
+  }
+  .navbar__link:nth-child(2n) {
+    background-color: transparent;
+  }
+  .navbar__link:is(:focus, :hover) {
+    color: var(--main-color);
+    background-color: unset;
+  }
+  .navbar__auths {
+    order: 3;
+  }
+}

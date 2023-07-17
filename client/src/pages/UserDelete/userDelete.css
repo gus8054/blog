@@ -1,0 +1,55 @@
+.user-delete {
+  padding-inline: 2rem;
+  height: calc(100vh - 4rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+}
+.user-delete__title {
+  font-weight: bold;
+  font-size: 4rem;
+  font-family: "Dovemayo_gothic";
+  letter-spacing: 0.2rem;
+  color: var(--main-color);
+}
+.user-delete__form {
+  width: min(100%, 30rem);
+  padding: 2rem;
+  background: white;
+  border: 2px solid var(--sub-color);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  font-size: 1.2rem;
+  font-weight: normal;
+}
+.user-delete__input {
+  background-color: transparent;
+  font: inherit;
+  padding: 0.5rem 1rem;
+  border-bottom: 2px solid var(--sub-color);
+  outline-color: var(--sub-color);
+}
+.user-delete__input:is(:focus, :hover) {
+  border-color: var(--main-color);
+}
+.user-delete__btn {
+  color: white;
+  background-color: var(--main-color);
+  padding: 1rem;
+  border: none;
+  font: inherit;
+  outline: none;
+}
+.user-delete__withdraw {
+  background-color: var(--error-font);
+}
+.user-delete__btn:is(:focus, :hover) {
+  opacity: 0.7;
+}
+.user-delete__error {
+  min-height: 2rem;
+  color: tomato;
+}
