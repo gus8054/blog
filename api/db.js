@@ -6,7 +6,7 @@ const db = mysql.createConnection({
   host: "localhost",
   user: "root",
   database: "blog",
-  password: "o59259o7!3",
+  password: process.env.MYSQL_PASSWORD,
 });
 
 export default db;
