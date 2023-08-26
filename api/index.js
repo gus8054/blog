@@ -10,15 +10,15 @@ import bodyParser from "body-parser";
 import { fileURLToPath } from "url";
 import path from "path";
 
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT || 5000;
 const app = express();
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "../client/build")));
 app.use(bodyParser.json({ limit: "50mb" }));
 app.use(bodyParser.urlencoded({ limit: "50mb", extended: true }));
 app.use(cookieParser(process.env.COOKIE_SECRET));
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "./public/index.html"));
+  res.sendFile(path.join(__dirname, "../client/build/index.html"));
 });
 app.use("/api/auth", authRouter);
 app.use("/api/users", usersRouter);
