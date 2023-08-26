@@ -10,7 +10,9 @@ export async function loader({ params }) {
   const post = await getPost(params.id);
   const category = post.category;
   let relatedPosts = await getPosts(category, 9);
-  relatedPosts = relatedPosts.filter((relatedpost) => String(relatedpost.id) !== String(post.id)).slice(0, 8);
+  relatedPosts = relatedPosts
+    .filter((relatedpost) => String(relatedpost.id) !== String(post.id))
+    .slice(0, 8);
   return { post, relatedPosts };
 }
 
@@ -35,13 +37,19 @@ const Post = () => {
       <article className="post__target">
         <h1 className="post__target__title">{post.title}</h1>
         <div className="post__target__author">
-          <p className="post__target__author-name">myname</p>
+          <p className="post__target__author-name">{post.author}</p>
           {user?.username === post.author && (
             <div className="post__target__btns">
-              <button className="post__target__btn post__target__btn_edit" onClick={() => navigate("/write", { state: post })}>
+              <button
+                className="post__target__btn post__target__btn_edit"
+                onClick={() => navigate("/write", { state: post })}
+              >
                 <BiEdit />
               </button>
-              <button className="post__target__btn post__target__btn_delete" onClick={deleteHandler}>
+              <button
+                className="post__target__btn post__target__btn_delete"
+                onClick={deleteHandler}
+              >
                 <AiFillDelete />
               </button>
             </div>
@@ -50,7 +58,10 @@ const Post = () => {
         <div className="post__target__img">
           <img src={post.imageURL} alt={post.imageURL} />
         </div>
-        <p className="post__target__content" dangerouslySetInnerHTML={{ __html: post.rowContent }}></p>
+        <p
+          className="post__target__content"
+          dangerouslySetInnerHTML={{ __html: post.rowContent }}
+        ></p>
       </article>
       <aside className="post__related-posts">
         {relatedPosts.map((post) => (

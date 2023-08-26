@@ -77,7 +77,6 @@
   text-align: right;
 }
 .write__btn {
-  margin-left: 1rem;
   padding: 0.5rem 1rem;
   border-radius: 1rem;
   border: 2px solid var(--main-color);
@@ -89,6 +88,7 @@
   color: var(--main-color);
 }
 .write__btn_submit {
+  margin-left: 1rem;
   background-color: var(--main-color);
   color: white;
 }
@@ -101,15 +101,26 @@
   .write__form {
     display: flex;
     gap: 8rem;
-    align-items: flex-end;
+    align-items: stretch;
   }
   .write__column_left {
-    flex-grow: 3;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
   }
+
   .write__column_right {
-    flex-grow: 1;
+    width: 25%;
   }
   #write__content {
     margin-bottom: 0rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .ql-container {
+    flex: 1;
   }
 }

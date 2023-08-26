@@ -8,8 +8,13 @@ const AuthProvider = ({ children }) => {
 
   const login = async (inputUsername, inputPassword) => {
     try {
-      const response = await axios.post("/auth/login", { username: inputUsername, password: inputPassword });
-      const { username, email, role } = JSON.parse(atob(response.data.accessToken.split(".")[1]));
+      const response = await axios.post("/api/auth/login", {
+        username: inputUsername,
+        password: inputPassword,
+      });
+      const { username, email, role } = JSON.parse(
+        atob(response.data.accessToken.split(".")[1])
+      );
       setAccessToken(response.data.accessToken);
       setUser({ username, email, role });
     } catch (err) {
@@ -18,7 +23,7 @@ const AuthProvider = ({ children }) => {
   };
   const getRefreshToken = async () => {
     try {
-      const response = await axios.get("/auth/refreshtoken");
+      const response = await axios.get("/api/auth/refreshtoken");
       setAccessToken(response.data.accessToken);
       return response.data.accessToken;
     } catch (err) {
@@ -28,7 +33,7 @@ const AuthProvider = ({ children }) => {
 
   const logout = async (isRequest = true) => {
     try {
-      if (isRequest) await getMyAxiosInstance().get("/auth/logout");
+      if (isRequest) await getMyAxiosInstance().get("/api/auth/logout");
       setAccessToken(null);
       setUser(null);
     } catch (err) {
@@ -54,7 +59,11 @@ const AuthProvider = ({ children }) => {
     return instance;
   };
 
-  return <AuthContext.Provider value={{ user, login, logout, getMyAxiosInstance }}>{children}</AuthContext.Provider>;
+  return (
+    <AuthContext.Provider value={{ user, login, logout, getMyAxiosInstance }}>
+      {children}
+    </AuthContext.Provider>
+  );
 };
 
 export default AuthProvider;
