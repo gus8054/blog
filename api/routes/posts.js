@@ -1,18 +1,25 @@
-import express from "express";
-import ROLES from "../userRoles.js";
-import jwtVerify from "../middleware/verify.js";
-import {
+const express = require("express");
+const ROLES = require("../userRoles.js");
+const jwtVerify = require("../middleware/verify.js");
+const {
   addPost,
   deletePosts,
   getPost,
   getPosts,
   updatePosts,
-} from "../controllers/posts.js";
+} = require("../controllers/posts.js");
+const multer = require("multer");
+const upload = multer({ dest: "uploads/" });
 
 const router = express.Router();
 router.get("/", getPosts);
 router.get("/:id", getPost);
-router.post("/", jwtVerify([ROLES.USER, ROLES.EDITOR, ROLES.ADMIN]), addPost);
+router.post(
+  "/",
+  jwtVerify([ROLES.USER, ROLES.EDITOR, ROLES.ADMIN]),
+  upload.single("image"),
+  addPost
+);
 router.delete(
   "/:id",
   jwtVerify([ROLES.USER, ROLES.EDITOR, ROLES.ADMIN]),
@@ -21,7 +28,8 @@ router.delete(
 router.patch(
   "/:id",
   jwtVerify([ROLES.USER, ROLES.EDITOR, ROLES.ADMIN]),
+  upload.single("image"),
   updatePosts
 );
 
-export default router;
+module.exports = router;

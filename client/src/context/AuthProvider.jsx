@@ -34,10 +34,11 @@ const AuthProvider = ({ children }) => {
   const logout = async (isRequest = true) => {
     try {
       if (isRequest) await getMyAxiosInstance().get("/api/auth/logout");
-      setAccessToken(null);
-      setUser(null);
     } catch (err) {
       throw err;
+    } finally {
+      setAccessToken(null);
+      setUser(null);
     }
   };
   const getMyAxiosInstance = () => {

@@ -1,5 +1,5 @@
 // get the client
-import mysql from "mysql2";
+const mysql = require("mysql2");
 
 // create the connection to database
 const db = mysql.createConnection({
@@ -9,5 +9,13 @@ const db = mysql.createConnection({
   password: process.env.MYSQL_PASSWORD,
 });
 
-export default db;
+// create the connection to database
+// const db = mysql.createConnection({
+//   host: "localhost",
+//   user: "root",
+//   database: "blog",
+//   password: process.env.MYSQL_PASSWORD,
+// });
+
+module.exports = db;
 // simple query

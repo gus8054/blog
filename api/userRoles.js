@@ -1,7 +1,7 @@
 const ROLES = {
-  ADMIN: process.env.ADMIN,
-  EDITOR: process.env.EDITOR,
-  USER: process.env.USER,
+  ADMIN: process.env.BLOGADMIN,
+  EDITOR: process.env.BLOGEDITOR,
+  USER: process.env.BLOGUSER,
 };
 
-export default ROLES;
+module.exports = ROLES;

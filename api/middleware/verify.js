@@ -1,5 +1,5 @@
-import jwt from "jsonwebtoken";
-import ROLES from "../userRoles.js";
+const jwt = require("jsonwebtoken");
+const ROLES = require("../userRoles.js");
 
 function jwtVerify(roles = [ROLES.ADMIN, ROLES.EDITOR, ROLES.USER]) {
   return (req, res, next) => {
@@ -15,7 +15,8 @@ function jwtVerify(roles = [ROLES.ADMIN, ROLES.EDITOR, ROLES.USER]) {
       // req 객체에 현재 유저의 정보를 추가
       const { username, email, role } = decoded;
       // 사용자 role 확인
-      if (!roles.includes(role)) return res.status(403).json({ message: "forbidden" }); // 해당 역할 접근 금지
+      if (!roles.includes(role))
+        return res.status(403).json({ message: "forbidden" }); // 해당 역할 접근 금지
       // req객체에 사용자 정보 추가
       const currentUser = { username, email, role };
       req.user = currentUser;
@@ -24,4 +25,4 @@ function jwtVerify(roles = [ROLES.ADMIN, ROLES.EDITOR, ROLES.USER]) {
     });
   };
 }
-export default jwtVerify;
+module.exports = jwtVerify;
